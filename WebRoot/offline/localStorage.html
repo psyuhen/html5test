@@ -1,0 +1,17 @@
+<!DOCTYPE HTML> 
+ <html> 
+ <body> 
+ <script> 
+ // 在 localStorage 中定义'userName'变量
+ if(!localStorage.getItem('userName')){
+	localStorage.setItem('userName', 'huateng developer');
+ }
+ // 访问'userName'变量
+ document.writeln("Your local user is: " + localStorage.getItem('userName')+"<br/>");
+ document.writeln("Your session user is: " + sessionStorage.getItem('userName')+"<br/>");
+
+ //alert("Your local user is: " + localStorage.getItem('userName'));                        
+ //alert("Your session user is: " + sessionStorage.getItem('userName'));                        
+ </script> 
+ </body> 
+ </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>HelloWorld</title>
+</head>
+<body>
+<canvas id="myCanvas" width="800px" height="500px"></canvas>
+<script type="text/javascript">
+var canvas = document.getElementById('myCanvas');
+var context = canvas.getContext("2d");
+context.fillStyle = '#A6CAF0 ';
+context.font = 'italic 60px Consolas';
+context.textBaseline='top';
+context.fillText('Hello World!', 0, 0);
+context.font = 'bold 60px Consolas';
+context.fillText('Hello world!', 0, 50);   
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE HTML> 
+ <html> 
+ <body> 
+ <script> 
+ // 在 sessionStorage 中定义'userName'变量
+ if(!sessionStorage.getItem('userName')){
+ 	sessionStorage.setItem('userName', 'developerworks');   
+ }    
+ // 访问'userName'变量
+ alert("Your local user is: " + localStorage.getItem('userName'));                        
+ alert("Your session user is: " + sessionStorage.getItem('userName'));  
+ // 最后删除'userName'
+ //sessionStorage.removeItem('userName');                       
+ </script> 
+ </body> 
+ </html>

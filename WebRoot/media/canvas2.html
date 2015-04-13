@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Canvas</title>
+<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+	<canvas id="arc" width="1000px" height="500px" style="border: 1px solid #3cf;" >
+	</canvas><br/>
+	<input type="color" id="color"/>
+	<input type="radio" id="tbline" value="直线" name="pen"/>
+	<label for="tbline">直线</label>
+	<input type="radio" id="tbpen" value="画笔" name="pen" checked="checked"/>
+	<label for="tbpen">画笔</label>
+	<input type="radio" id="tbcircle" value="圆" name="pen"/>
+	<label for="tbcircle">圆</label>
+	<input type="radio" id="tbrect" value="矩形" name="pen"/>
+	<label for="tbrect">矩形</label>
+	<script type="text/javascript">
+		
+		function writeArc() {
+			var arc = document.getElementById("arc");
+			var context = arc.getContext("2d");
+
+			var isLine = false;
+			var startPosition = null;
+			arc.addEventListener('mousedown', function(e) {
+				var position = getEventPosition(e);
+				context.beginPath();
+				var selectedRadio = $(":radio:checked");
+				if(selectedRadio.val() === "画笔" || selectedRadio.val() === "直线"){
+					context.moveTo(position.x,position.y);
+				}else if(selectedRadio.val() === "圆" || selectedRadio.val() === "矩形"){
+					startPosition = position;
+				}
+				
+				isLine = true;
+			}, false);
+			
+			arc.addEventListener('mousemove', function(e) {
+				if(!isLine){
+					return;
+				}
+				var selectedRadio = $(":radio:checked");
+				if(selectedRadio.val() === "画笔"){
+					var position = getEventPosition(e);
+					context.lineTo(position.x, position.y);
+					context.strokeStyle=$("#color").val();
+					context.stroke();
+				}
+				
+				
+			}, false);
+			
+			arc.addEventListener('mouseup', function(e) {
+				var selectedRadio = $(":radio:checked");
+				var position = getEventPosition(e);
+				if(selectedRadio.val() === "直线"){
+					var position = getEventPosition(e);
+					context.lineTo(position.x, position.y);
+					context.strokeStyle=$("#color").val();
+					context.stroke();
+				}else if(selectedRadio.val() === "矩形"){
+					context.rect(startPosition.x, startPosition.y, position.x - startPosition.x, position.y - startPosition.y);
+					context.strokeStyle=$("#color").val();
+					context.stroke();
+				}else if(selectedRadio.val() === "圆"){
+					var raduis = Math.sqrt(Math.pow(position.x - startPosition.x,2) + Math.pow(position.y - startPosition.y,2));
+					context.arc(startPosition.x, startPosition.y,raduis,0,2 * Math.PI,true);
+					context.strokeStyle=$("#color").val();
+					context.stroke();
+				}
+				
+				isLine = false;
+				context.closePath();
+				
+			}, false);
+
+		}
+		
+		writeArc();
+		//获取坐标X和Y
+		function getEventPosition(ev) {
+			var x, y;
+			if (ev.layerX || ev.layerX == 0) {
+				x = ev.layerX;
+				y = ev.layerY;
+			} else if (ev.offsetX || ev.offsetX == 0) { // Opera
+				x = ev.offsetX;
+				y = ev.offsetY;
+			}
+			return {
+				x : x,
+				y : y
+			};
+		}
+	</script>
+</body>
+</html>

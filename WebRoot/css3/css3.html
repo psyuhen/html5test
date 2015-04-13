@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Css3</title>
+<style type="text/css">
+p[title^="val"] {color:#FF0000;}
+p[title$="val"] {font-weight:bold;}
+p[title*="val"] {text-decoration:underline;}
+html:root {background-color:#DCDCDC;}
+p:nth-child(2) {color:#FF0000;}
+div ~ p {background-color:#00FF00;}
+.test_demo_clip{text-overflow:clip; overflow:hidden; white-space:nowrap; width:200px; background:#ccc;}
+.test_demo_ellipsis{text-overflow:ellipsis; overflow:hidden; white-space:nowrap; width:200px; background:#ccc;}
+div{ width:300px;word-wrap:break-word;border:1px solid #999999;}
+@font-face {
+ font-family: BorderWeb;
+ src:url(BORDERW0.eot);
+}
+@font-face {
+ font-family: Runic;
+ src:url(RUNICMT0.eot);
+}
+@font-face {
+ font-family: Kingston;
+ src:url(KINGSTON.eot);
+}
+*{background:#FFF}
+.king { FONT-SIZE: 45pt; FONT-FAMILY: "Kingston" }
+.border { FONT-SIZE: 35px; COLOR: black; FONT-FAMILY: "BorderWeb" }
+.border2 { FONT-SIZE: 35px; COLOR:black; FONT-FAMILY: "BorderWeb" }
+.event { FONT-SIZE: 110px; COLOR: black; FONT-FAMILY: "Runic" }
+.locale { FONT-SIZE: 40px; COLOR: black; FONT-FAMILY: "Runic" }
+.bullet { FONT-SIZE: 50px; COLOR: black; FONT-FAMILY: "BorderWeb" }
+.corner { FONT-SIZE: 70px; COLOR: black; FONT-FAMILY: "BorderWeb" }
+a { FONT-SIZE: 10px; COLOR: black; FONT-FAMILY: Verdana; TEXT-DECORATION: none }
+.wrapper {width:703px; padding:10px; margin:40px auto 0; border:1px solid #333333;}
+.wrapper .inner { padding:5px 10px;}
+.wrapper .inner h2 {color:#333333; background:#DCDCDC; padding:5px 8px;}
+.wrapper .inner .cont {color:#333333; font-size:14px; line-height:180%; text-indent:2em;}
+.wrapper .inner .cont p {margin-bottom:15px; line-height:180%;}
+.wrapper .inner .cont .column-width {-webkit-column-width:300px;-moz-column-width:300px;-webkit-column-count:2;-moz-column-count:2;-webkit-column-gap:50px;}
+</style>
+</head>
+<body>
+	<div style="width:733px; border: 1px solid #666; padding:5px;">
+		<p title="value">匹配具有att属性、且值以val开头的E元素</p>
+		<p title="test">匹配具有att属性、且值不以val开头的E元素</p>
+		<p title="testval">匹配具有att属性、且值以val结尾的E元素</p>
+		<p title="have val word">匹配具有att属性、且值以val结尾的E元素</p>
+	</div>
+	<div style="width:733px; border: 1px solid #666; padding:5px;">
+		<p>结构性伪类 E:root</p>
+	</div>
+	<div style="width:733px; border: 1px solid #666; padding:5px;">
+		<p>匹配父元素中的第n个子元素E</p>
+		<p>匹配父元素中的第n个子元素E</p>
+		<p>匹配父元素中的第n个子元素E</p>
+	</div>
+	
+	<div style="width:733px; border: 1px solid #666; padding:5px;">
+		<div>
+			<p>匹配E元素之后的F元素</p>
+			<p>匹配E元素之后的F元素</p>
+		</div>
+		<hr />
+		<p>匹配E元素之后的F元素</p>
+		<p>匹配E元素之后的F元素</p>
+		<hr />
+		<p>匹配E元素之后的F元素</p>
+		<hr />
+		<div>匹配E元素之后的F元素</div>
+		<hr />
+		<p>匹配E元素之后的F元素</p>
+		<p>匹配E元素之后的F元素</p>
+		<p>匹配E元素之后的F元素</p>
+		<p>匹配E元素之后的F元素</p>
+		<p>匹配E元素之后的F元素</p>
+		<hr />
+		<p>匹配E元素之后的F元素</p>
+	</div>
+	<div style="text-shadow:5px 2px 6px #000;">Safari下可以看到效果</div>
+	<h2>text-overflow : clip </h2>
+	  <div class="test_demo_clip">
+	  不显示省略标记，而是简单的裁切条
+	</div>
+	<h2>text-overflow : ellipsis </h2>
+	<div class="test_demo_ellipsis">
+	  当对象内文本溢出时显示省略标记
+	</div>
+	<div>
+	wordwrapbreakwordwordwrapbreakwordwordwrapbreakwordwordwrapbreakword
+	</div>
+	<div style="border-width: 1px;border-style: solid;-moz-border-radius: 11px;-khtml-border-radius: 11px;-webkit-border-radius: 11px;border-radius: 11px;padding:5px;">在Firefox和Safari 3的浏览器里能看到圆角效果</div>
+	<div style="-webkit-box-shadow:5px 2px 6px #000;-moz-box-shadow:5px 2px 6px #000;padding:4px 10px;">Safari下可以看到效果</div>
+	<div style="-webkit-border-image: url(img/html5_logo.png) 0 12 0 12 stretch stretch;-moz-border-image: url(img/bt_blue.png) 0 12 0 12 stretch stretch;
+    display: block;
+    border-width: 0 12px;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: inherit;
+    color:white;+color:black;">在safari3+和FF3.5浏览器里能看到边框背景图</div>
+	<div class="wrapper">
+	<div class="inner">
+		<h2>column-width</h2>
+
+		<div class="cont">
+			<div class="column-width">
+				<p><strong>ISD Webteam</strong>是一个设计团队，即<strong>腾讯互联网业务系统网站组</strong>。</p>
+
+				<p><strong>ISD Webteam</strong>关注于网站产品的体验设计，包括网站的可用性、视觉风格以及网页重构。</p>
+				<p>我们的产品类型挺丰富，有<strong>空间(Qzone)</strong>，有<strong>会员(QQVIP)</strong>，有<strong>QQ秀(QQShow)</strong>，还有<strong>音乐(QQMusic)</strong>，项目挺多，工作也挺忙，无时无刻不在体现互联网行业的特征。</p>
+
+				<p>我们的成员类型挺丰富，有安静的，有狂躁的，有智勇双全的，也有身can志不坚的，总体上还算相亲相爱，偶尔也会你打我闹。</p>
+				<p><strong>“让我们的互联网服务像水和电一样融入到人们的生活当中”</strong>，是我们的梦想，距离目标还有很长的路要走，至今我们仍在不懈的努力，如果你愿意，欢迎和我们一起。</p></p>
+			</div>
+		</div>
+	</div>
+	</div>
+	
+	<table cellspacing="0" cellpadding="0" border="0" style="width: 100%">
+	<tbody>
+		<tr>
+			<td valign="bottom" align="middle" bgcolor="olive" colspan="2" rowspan="2"><span class="corner">6</span></td>
+			<td valign="bottom" align="middle" bgcolor="black" height="35"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive" colspan="2" rowspan="2"><span class="corner">5</span></td>
+		</tr>
+		<tr>
+			<td valign="bottom" align="middle" bgcolor="khaki" height="35"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+		</tr>
+		<tr>
+			<td align="middle" bgcolor="black" height="70"><span class="border2">8<br />7</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">A</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">a</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">B</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">b</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">C</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">c</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td align="middle" bgcolor="black"><span class="border2">8<br />7</span></td>
+		</tr>
+		<tr>
+			<td align="middle" bgcolor="black" height="70"><span class="border2">8<br />7</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">d</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">D</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">e</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">E</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">f</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">F</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td align="middle" bgcolor="black"><span class="border2">8<br />7</span></td>
+		</tr>
+		<tr>
+			<td align="middle" bgcolor="black" height="70"><span class="border2">8<br />7</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">G</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">g</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">H</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">h</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">I</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">i</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td align="middle" bgcolor="black"><span class="border2">8<br />7</span></td>
+		</tr>
+		<tr>
+			<td align="middle" bgcolor="black" height="70"><span class="border2">8<br />7</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">j</span></td>
+			<td align="middle" bgcolor="khaki"><span class="king">J</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">k</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">K</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">l</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">L</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td align="middle" bgcolor="black"><span class="border2">8<br />7</span></td>
+		</tr>
+		<tr>
+			<td align="middle" bgcolor="black" height="70"><span class="border2">8<br />7</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">M</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">m</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">N</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">n</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">O</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">o</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td align="middle" bgcolor="black"><span class="border2">8<br />7</span></td>
+		</tr>
+		<tr>
+			<td align="middle" bgcolor="black" height="70"><span class="border2">8<br />7</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">p</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">P</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">q</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">Q</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive"><span class="king">r</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="king">R</span></td>
+			<td align="middle" bgcolor="khaki"><span class="border">7<br />8</span></td>
+			<td align="middle" bgcolor="black"><span class="border2">8<br />7</span></td>
+		</tr>
+		<tr>
+			<td valign="bottom" align="middle" bgcolor="olive" colspan="2" rowspan="2"><span class="corner">5</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki" height="35"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="khaki"><span class="border">78</span></td>
+			<td valign="bottom" align="middle" bgcolor="olive" colspan="2" rowspan="2"><span class="corner">6</span></td>
+		</tr>
+		<tr>
+			<td valign="bottom" align="middle" bgcolor="black" height="35"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+			<td valign="bottom" align="middle" bgcolor="black"><span class="border2">87</span></td>
+		</tr>
+		<tr>
+			<td height="15"></td>
+		</tr>
+		<tr>
+			<td valign="top" colspan="10">
+				<div class="event" align="center">FESTIVAL OF ORNAMENT</div>
+				<div class="locale" align="center">UNIVERSITY OF CARDIFF <span class="bullet">4</span> JUNE 16 – 28</div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+	
+	
+</body>
+</html>

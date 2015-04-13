@@ -1,0 +1,41 @@
+<!--
+author:ps
+since:1.0
+-->
+
+<!doctype html>
+
+<!--
+article标签装载显示一个独立的文章内容。例如一篇完整的论坛帖子，一则网站新闻，一篇博客文章等等，一个用户评论等等 artilce可以嵌套，则内层的artilce对外层的article标签有隶属的关系。例如，一个博客文章，可以用article显示，然后一 些评论可以以article的形式嵌入其中
+-->
+<article>
+
+    <header>
+        <h1>HTML5培训内容</h1>
+        <p><time pubdate datetime="2015-02-08">2015/02/08</time></p>
+    </header>
+
+    <p>培训内容....</p>
+
+    <article>
+        <h2>评论</h2>
+
+        <article>
+            <header>
+                <h3>评论者: XXX</h3>
+                <p><time pubdate datetime="2015-02-08T19:10-08:00">~1 hour ago</time></p>
+            </header>
+            <p>哈哈哈</p>
+        </article>
+
+        <article>
+            <header>
+                <h3>评论者: XXX</h3>
+                <p><time pubdate datetime="2015-02-08T19:10-08:00">~1 hour ago</time></p>
+            </header>
+            <p>哈？哈？哈？</p>
+        </article>
+
+    </article>
+
+</article>

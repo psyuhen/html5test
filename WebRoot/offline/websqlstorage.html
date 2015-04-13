@@ -1,0 +1,23 @@
+<!DOCTYPE HTML> 
+ <html> 
+ <head> 
+  <title>Web SQL Storage</title> 
+  <script type="text/javascript" charset="utf-8" >
+  		var db = openDatabase('html5test', '1.0', 'html5test', 100 * 1024); 
+		 db.transaction(function (tx) {
+		  	tx.executeSql('CREATE TABLE IF NOT EXISTS html5test (id unique, text)');  
+		  	tx.executeSql('INSERT INTO html5test (id, text) VALUES (1, "huateng html5test")'); 
+		 });
+		 db.transaction(function (tx) {
+		  	tx.executeSql('SELECT * FROM html5test WHERE ID=1',[],function(tx,result){
+		  		//alert(result.rows.item(0).text);
+		  		document.writeln("查询到的ID值为: " + result.rows.item(0).id+"<br/>");
+		  		document.writeln("查询到的Text值为: " + result.rows.item(0).text+"<br/>");
+		  	});
+		 });
+  </script>
+ </head> 
+ <body> 
+	
+ </body> 
+ </html> 

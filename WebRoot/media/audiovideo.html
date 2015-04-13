@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Audio Video</title>
+<script type="text/javascript" src="../js/jquery-1.7.1.min.js"></script>
+<style>
+ canvas {background: #000;}
+</style>
+</head>
+<body>
+	<h2>单文件播放:</h2>
+	<audio src="../audio/01 Sing Gymboree.mp3" controls="controls">
+		Download <a href="audio/01 Sing Gymboree.mp3">01 Sing Gymboree.mp3</a>
+	</audio>
+	<h2>单文件播放:（浏览器会选择播放哪个文件）</h2>
+	<audio controls="controls" preload="auto" loop="loop">
+		<source src="../audio/02 Let's Make A Circle.mp3">
+		<source src="../audio/01 Sing Gymboree.mp3">
+		<!-- 如果浏览器不支持，显示下载 -->
+		Download <a href="audio/01 Sing Gymboree.mp3">01 Sing Gymboree.mp3</a>
+		Download <a href="audio/02 Let's Make A Circle.mp3">02 Let's Make A Circle.mp3</a>
+	</audio>
+	<h2>单文件播放:（如果浏览器不支持audio，默认播放swf）</h2>
+	<audio controls="controls" preload="auto" loop="loop">
+		<source src="../audio/02 Let's Make A Circle.mp3">
+		<source src="../audio/01 Sing Gymboree.mp3">
+		<object data="../video/60208922-紫色爱恋.swf">
+			<param name="movie" value="video/60208922-紫色爱恋.swf">
+			浏览器不支持Video和Flash
+		</object>
+	</audio>
+	
+	<h2>单文件播放(自定义按钮):</h2>
+	<audio src="../audio/01 Sing Gymboree.mp3" id="defineBtnAudio">
+		Download <a href="audio/01 Sing Gymboree.mp3">01 Sing Gymboree.mp3</a>
+	</audio>
+	<button title="播放" id="play30s" >播放</button>
+	<script type="text/javascript">
+		$("#play30s").click(function(){
+			defineBtnAudio.currentTime=30;
+			defineBtnAudio.play();
+		});
+	</script>
+	<br/>
+	<audio src="../audio/01 Sing Gymboree.mp3" id="waveformaudio">
+		Download <a href="audio/01 Sing Gymboree.mp3">01 Sing Gymboree.mp3</a>
+	</audio>
+	<canvas width="512" height="100" id="waveformcanvas">
+	</canvas><br/>
+	<button title="生成音频" id="generateWaveform">生成音频</button>
+	<script type="text/javascript">
+		
+		$("#generateWaveform").click(function() {
+			var audio = document.getElementById("waveformaudio");
+			var canvas = document.getElementById("waveformcanvas");
+			var context = canvas.getContext("2d");
+			audio.addEventListener("MozAudioAvailable", function(event) {
+				var channels = audio.mozChannels;
+				var frameBufferLength = audio.mozFrameBufferLength;
+				var fbData = event.frameBuffer;
+				var stepInc = (frameBufferLength / channels) / canvas.width;
+				var waveAmp = canvas.height / 2;
+				canvas.width = canvas.width;
+				context.beginPath();
+				context.moveTo(0, waveAmp - fbData[0] * waveAmp);
+				for (var i = 1; i < canvas.width; i++) {
+					context.lineTo(i, waveAmp - fbData[i * stepInc] * waveAmp);
+				}
+				context.strokeStyle = "#fff";
+				context.stroke();
+			}, false);
+			audio.play();
+		});
+	</script>
+</body>
+</html>

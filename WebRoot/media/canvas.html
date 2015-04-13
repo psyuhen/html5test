@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Canvas</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+	<canvas id="arc" width="500px" height="500px" style="border: 1px solid #3cf">
+	</canvas>
+	<script type="text/javascript">
+		var arc = document.getElementById("arc");
+		var context = arc.getContext("2d");
+		
+		//画圆
+		context.beginPath();
+		/*
+		Create a circular arc path (up to a full circle), where (x, y) is the center of the arc
+and the arc starts and ends at the given angles (in radians) and moves in either a
+clockwise or counter-clockwise direction.
+		*/
+		context.arc(100,100,75,0,2 * Math.PI,true);
+		//context.fillStyle = "lightblue";
+		//context.fill();
+		//context.moveTo(10, 10);
+		//context.lineTo(30, 30);
+		context.stroke();
+		context.closePath();
+		
+		//画矩形
+		context.beginPath();
+		/*
+		Create a rectangle path where (x, y) is one corner, and the diagonally opposite
+corner is (x+width, y+height).
+		*/
+		context.rect(200,50,150,75);
+		//context.fillStyle = "lightblue";
+		//context.fill();
+		//context.moveTo(10, 10);
+		//context.lineTo(30, 30);
+		context.stroke();
+		context.closePath();
+	</script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+CACHE MANIFEST 
+#需要缓存的文件
+clock.html 
+clock.css 
+clock.js
+
+#例外的文件
+NETWORK:
+localStorage.html
+
+#还可以继续缓存
+CACHE:
+sessionStorage.html

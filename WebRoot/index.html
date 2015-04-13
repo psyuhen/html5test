@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+		<title>HTML5 DEMO</title>
+		<link type="text/css" href="./css/html5.css" rel="stylesheet"/>
+		<script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".menulist").find("li:first").bind('click', function() {
+					$(this).nextAll();
+					showOrHide($(this).nextAll());
+				});
+				$(".menulist").find("li:gt(0)").bind('click', function() {
+					$(".menulist > li:gt(0)").removeClass('menulistactive');
+					$(this).addClass('menulistactive');
+				});
+				$(".menulist:gt(0)").find("li:gt(0)").hide("slow");
+			});
+			
+			function showOrHide(obj){
+				obj.toggleClass(function(){
+					if($(this).css("display") == "none"){
+						$(this).show('slow');
+					}else{
+						$(this).hide('slow');
+					}
+				});
+			}
+		</script>
+	</head>
+	
+	<body>
+		<table>
+			<tr>
+				<td style="padding:0px;margin:0px;vertical-align: top;width:20%;">
+					<ul class="menulist">
+						<li><a href="./helloworld.html" target="main">HelloWorld</a></li>
+					</ul>
+					<ul class="menulist">
+						<li id="yuyihua" style="list-style-image: url('./img/ccbmenubar1.png');cursor: pointer;">
+							语义化
+						</li>
+						<li><a href="./yuyihua/form.html" target="main">FORM新特性</a></li>
+						<li><a href="./yuyihua/progress.html" target="main">progress</a></li>
+						<li><a href="./yuyihua/meter.html" target="main">meter</a></li>
+					</ul>
+					<ul class="menulist">
+						<li id="offline" style="list-style-image: url('./img/ccbmenubar1.png');cursor: pointer;">
+							离线功能
+						</li>
+						<li><a href="./offline/websqlstorage.html" target="main">Web Sql Storage</a></li>
+						<li><a href="./offline/sessionStorage.html" target="main">Session Storage</a></li>
+						<li><a href="./offline/localStorage.html" target="main">local Storage</a></li>
+						<li><a href="./offline/clock.html" target="main">Application Cache</a></li>
+					</ul>
+					<ul class="menulist">
+						<li id="connect" style="list-style-image: url('./img/ccbmenubar1.png');cursor: pointer;">
+							即时通讯
+						</li>
+						<li><a href="./connect/webscoket_echo.jsp" target="main">Web Socket</a></li>
+						<li><a href="./connect/html5webworker.jsp" target="main">Web Worker</a></li>
+						<li><a href="./connect/html5notifications.jsp" target="main">WebKit notification</a></li>
+						<li><a href="./connect/html5chromenotifications.jsp" target="main">chrome notification</a></li>
+					</ul>
+					<ul class="menulist">
+						<li id="fileele" style="list-style-image: url('./img/ccbmenubar1.png');cursor: pointer;">
+							文件以及硬件支持
+						</li>
+						<li><a href="./fileele/draganddrop.jsp" target="main">元素拖动</a></li>
+						<li><a href="./fileele/draganddropfile.jsp" target="main">文件拖动</a></li>
+						<li><a href="./fileele/geolocation.jsp" target="main">地理位置</a></li>
+						<li><a href="./fileele/speechInput.jsp" target="main">语音输入</a></li>
+					</ul>
+					<ul class="menulist">
+						<li id="media" style="list-style-image: url('./img/ccbmenubar1.png');cursor: pointer;">
+							多媒体
+						</li>
+						<li><a href="./media/audiovideo.html" target="main">音频</a></li>
+						<li><a href="./media/video.html" target="main">视频</a></li>
+						<li><a href="./media/canvas.html" target="main">画布1</a></li>
+						<li><a href="./media/canvas1.html" target="main">画布2</a></li>
+						<li><a href="./media/canvas2.html" target="main">画布3</a></li>
+						<li><a href="./media/svg.html" target="main">SVG</a></li>
+					</ul>
+					<ul class="menulist">
+						<li id="css3" style="list-style-image: url('./img/ccbmenubar1.png');cursor: pointer;">
+							CSS3
+						</li>
+						<li><a href="./css3/css3.html" target="main">CSS3</a></li>
+						<li><a href="./css3/css32.html" target="main">CSS32</a></li>
+					</ul>
+				</td>
+				<td style="width:80%;">
+					<iframe id="main" scrolling="no" name="main" height="570px" width="100%" frameborder="0">
+					</iframe>
+				</td>
+			</tr>
+		</table>
+		
+	</body>
+</html>

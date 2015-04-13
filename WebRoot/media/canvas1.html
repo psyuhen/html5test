@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Canvas</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+</head>
+<body>
+	<canvas id="arc" width="1000px" height="500px" style="border: 1px solid #3cf">
+	</canvas>
+	<button id="btnW" onclick="writeArc();">按钮</button>
+	<script type="text/javascript">
+		function writeArc(){
+			var arc = document.getElementById("arc");
+			var context = arc.getContext("2d");
+			var x = 250;
+			var y = 75;
+			var increaseX = 1;
+			var increaseY = 1;
+			var max = 700
+			var first = true;
+			//画圆
+			for (var i=0; i < max; i ++){
+				context.beginPath();
+				context.arc(x,y,75,0,2 * Math.PI,true);
+				context.stroke();
+				context.closePath();
+				
+				x -= increaseX;
+				y += increaseY;
+				
+				if(x === 75 || x === 425){
+					increaseX = -increaseX;
+				}
+				
+				if(y === 75 || y === 425){
+					increaseY = -increaseY;
+				}
+			}
+			
+			//用线条画矩形
+			context.beginPath();
+			context.moveTo(250, 75);
+			context.lineTo(75, 250);
+			context.lineTo(250, 425);
+			context.lineTo(425, 250);
+			context.lineTo(250, 75);
+			context.strokeStyle="red";
+			context.stroke();
+			context.closePath();
+			
+			//用矩形画图
+			context.beginPath();
+			var width = Math.sqrt(2) * 250;
+			var height = Math.sqrt(2) * 250;
+			// degrees*Math.PI/180
+			context.rotate(Math.PI/180 * 45);
+			context.rect(500-width, 0, width, height/2);
+			context.strokeStyle="red";
+			context.stroke();
+			context.closePath();
+			
+			context.beginPath();
+			context.rotate(-45*Math.PI/180); /*将画布旋转到正常的角度*/
+			context.font="60px 微软雅黑"; 
+			context.strokeStyle="#f00"; 
+			context.strokeText("我爱html5",600,300);
+			context.closePath();
+			
+			context.beginPath();
+			var grd=context.createLinearGradient(600,45,775,50);/*四个参数分别是渐变开始点x、y渐变结束点x、y*/ 
+			grd.addColorStop(0,"#990000"); 
+			grd.addColorStop(0.25,"#ccFF00"); 
+			grd.addColorStop(0.5,"#00FFdd"); 
+			grd.addColorStop(0.75,"#00aaFF"); 
+			grd.addColorStop(1,"#aaFF00"); 
+			context.strokeStyle=grd; 
+			context.strokeText("我爱canvas",600,400);/*两个参数，第一个是开始绘制文本的x轴坐标，第二个是开始绘制文本的Y坐标*/ 
+			context.stroke();
+			context.closePath();
+		}
+		
+	</script>
+</body>
+</html>

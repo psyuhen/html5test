@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+
+body {
+	font-size: 11px;
+	color: #222;
+	font-family: Consolas, "宋体";
+}
+
+.menulist {
+	height: 100%;
+	margin-top: 0px;
+}
+
+.menulist li {
+	font-size: 14px;
+	font-family: "黑体";
+	list-style-image: url("../img/ccbmenubar2.png");
+	vertical-align: middle;
+	text-align: left;
+}
+
+.menulist li a {
+	text-decoration: none;
+	color: #000000;
+}
+
+.menulistactive {
+	text-decoration: underline;
+	font-weight: bold;
+	font-style: italic;
+}
+
+span {
+	color: white;
+	font-size: 12px;
+}
+
+table {
+	border-collapse: collapse;
+	border: 1px solid #d4d4d4;
+	width:100%;
+}
+
+table td{
+	border: 1px solid #d4d4d4;
+}
+
+#newAd li {
+	border-bottom: 1px solid #d4d4d4;
+}
+
+#infotip li {
+	border-bottom: 1px solid #d4d4d4;
+	list-style-type: none;
+}
